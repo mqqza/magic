@@ -96,7 +96,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerListView = (ListView) rootView.findViewById(R.id.list_item);
     /* mDrawerListView = (LinearLayout) inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);*/
-         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectItem(position);
@@ -114,10 +114,10 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_about),
                 }));
 
-       // BaseAdapter adapter = new DrawerListAdapter();
+        // BaseAdapter adapter = new DrawerListAdapter();
 //        mDrawerListView.setAdapter(adapter);
-       mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-
+        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+        mDrawerListView.setFitsSystemWindows(true);
         return rootView;
     }
 
