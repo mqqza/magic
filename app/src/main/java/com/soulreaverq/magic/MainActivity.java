@@ -88,7 +88,7 @@ public class MainActivity extends ActionBarActivity
                 mTitle = getString(R.string.title_fav);
                 break;
             case 4:
-                mTitle = "About";
+                mTitle = getString(R.string.title_about);
         }
     }
 
