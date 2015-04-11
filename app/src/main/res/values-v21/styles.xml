@@ -7,8 +7,6 @@
         <item name="colorPrimary">#fa877a</item>
         <item name="colorPrimaryDark">#e1796d</item>
         <item name="windowActionBar">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 

@@ -3,33 +3,39 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:fitsSystemWindows="true">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:fitsSystemWindows="true"
-        >
+        android:background="#e1796d">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent" />
-
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@drawable/toolbar_dropshadow" />
-
-
-        <FrameLayout
-            android:id="@+id/container"
             android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            tools:context=".MainActivity" />
+            android:background="@color/background_material_light"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@drawable/toolbar_dropshadow" />
+
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                tools:context=".MainActivity" />
+        </LinearLayout>
     </LinearLayout>
 
     <fragment
@@ -38,8 +44,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:name="com.soulreaverq.magic.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer"
-        android:fitsSystemWindows="true"
-       />
+        tools:layout="@layout/fragment_navigation_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
