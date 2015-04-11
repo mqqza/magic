@@ -18,11 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -60,6 +56,7 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
+
     public NavigationDrawerFragment() {
     }
 
@@ -94,30 +91,17 @@ public class NavigationDrawerFragment extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
         mDrawerListView = (ListView) rootView.findViewById(R.id.list_item);
-    /* mDrawerListView = (LinearLayout) inflater.inflate(
-                R.layout.fragment_navigation_drawer, container, false);*/
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                new String[]{
-                        getString(R.string.title_profile),
-                        getString(R.string.title_feed),
-                        getString(R.string.title_fav),
-                        getString(R.string.title_setting),
-                        getString(R.string.title_about),
-                }));
 
-        // BaseAdapter adapter = new DrawerListAdapter();
-//        mDrawerListView.setAdapter(adapter);
+        NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(getActivity());
+        mDrawerListView.setAdapter(adapter);
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-        mDrawerListView.setFitsSystemWindows(true);
+
         return rootView;
     }
 

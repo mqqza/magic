@@ -25,11 +25,6 @@ public class MainActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
-    private CharSequence mTitle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +36,6 @@ public class MainActivity extends ActionBarActivity
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
@@ -65,10 +59,10 @@ public class MainActivity extends ActionBarActivity
             case 2:
                 fragment = new MyFragment3();
                 break;
-            case 3:
+            case 4:
                 fragment = new MyFragment4();
                 break;
-            case 4:
+            case 5:
                 fragment = new MyFragment5();
                 break;
         }
@@ -78,13 +72,13 @@ public class MainActivity extends ActionBarActivity
                 .commit();
     }
 
-    public void restoreActionBar() {
+   /* public void restoreActionBar() {
 
         ActionBar actionBar = getSupportActionBar();
         // actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
-    }
+    }*/
 
 
     @Override
@@ -95,7 +89,7 @@ public class MainActivity extends ActionBarActivity
             // decide what to show in the action bar.
             getMenuInflater().inflate(R.menu.main, menu);
 
-            restoreActionBar();
+            // restoreActionBar();
             return true;
         }
         return super.onCreateOptionsMenu(menu);
