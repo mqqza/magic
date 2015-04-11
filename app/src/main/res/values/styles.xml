@@ -4,13 +4,13 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
        <!-- <item name="colorPrimary">#9fe84926</item>
         <item name="colorPrimaryDark">#9fd44223</item>-->
-        <item name="colorPrimary">#fa877a</item>
-        <item name="colorPrimaryDark">#e1796d</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary_dark</item>
         <item name="windowActionBar">false</item>
 
     </style>
     <style name="ToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:textColorSecondary">#fff</item>
+        <item name="android:textColorSecondary">@color/white</item>
     </style>
 
     <style name="menu_labels_style">
