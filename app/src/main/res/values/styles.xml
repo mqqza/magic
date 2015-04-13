@@ -2,13 +2,14 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-       <!-- <item name="colorPrimary">#9fe84926</item>
-        <item name="colorPrimaryDark">#9fd44223</item>-->
+        <!-- <item name="colorPrimary">#9fe84926</item>
+         <item name="colorPrimaryDark">#9fd44223</item>-->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary_dark</item>
         <item name="windowActionBar">false</item>
 
     </style>
+
     <style name="ToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColorSecondary">@color/white</item>
     </style>
@@ -17,7 +18,6 @@
         <item name="android:background">@drawable/fab_label_background</item>
         <item name="android:textColor">@color/white</item>
     </style>
-
 
 
 </resources>

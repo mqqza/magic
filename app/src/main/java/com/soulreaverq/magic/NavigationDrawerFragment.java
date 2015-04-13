@@ -1,6 +1,5 @@
 package com.soulreaverq.magic;
 
-import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -57,7 +56,7 @@ public class NavigationDrawerFragment extends Fragment {
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
-
+    private NavigationDrawerAdapter adapter;
 
     public NavigationDrawerFragment() {
     }
@@ -101,11 +100,9 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
-
-        NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(getActivity());
+        adapter = new NavigationDrawerAdapter(getActivity());
         mDrawerListView.setAdapter(adapter);
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-
         return rootView;
     }
 
@@ -146,7 +143,6 @@ public class NavigationDrawerFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-
                 getActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
 
@@ -165,7 +161,6 @@ public class NavigationDrawerFragment extends Fragment {
                             .getDefaultSharedPreferences(getActivity());
                     sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
                 }
-
                 getActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
         };

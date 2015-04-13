@@ -2,6 +2,8 @@ package com.soulreaverq.magic;
 
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
     private static final int TYPE_MENU_ITEM = 0;
     private static final int TYPE_DIVIDER = 1;
     private final LayoutInflater inflater;
+    private int mItemSelected;
 
     public NavigationDrawerAdapter(Context context) {
         super(context, 0);
@@ -54,15 +57,19 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (getItemViewType(position) == TYPE_MENU_ITEM) {
-
             if (convertView == null)
                 convertView = inflater.inflate(R.layout.item_listview, parent, false);
             DrawerMenuItem item = getItem(position);
-            ImageView ivIcon = (ImageView) convertView.findViewById(R.id.ivIcon);
+            final ImageView ivIcon = (ImageView) convertView.findViewById(R.id.ivIcon);
             TextView tvLabel = (TextView) convertView.findViewById(R.id.tvLabel);
             tvLabel.setText(item.label);
             ivIcon.setImageResource(item.iconResId);
+            ivIcon.setColorFilter(Color.rgb(128,128,128), PorterDuff.Mode.SRC_IN);
+            if (position == mItemSelected ) {
+                ivIcon.setColorFilter(Color.rgb(250, 135, 122), PorterDuff.Mode.SRC_IN);
+            }
             ivIcon.setVisibility(item.iconResId == 0 ? View.GONE : View.VISIBLE);
+
             return convertView;
         } else {
             return inflater.inflate(R.layout.item_menu_divider, parent, false);
@@ -71,13 +78,12 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
     }
 
     private void setupMenuItems() {
-
-        menuItems.add(new DrawerMenuItem(R.drawable.ic_drawer, inflater.getContext().getString(R.string.title_profile)));
-        menuItems.add(new DrawerMenuItem(R.drawable.ic_drawer, inflater.getContext().getString(R.string.title_feed)));
-        menuItems.add(new DrawerMenuItem(R.drawable.ic_drawer, inflater.getContext().getString(R.string.title_fav)));
+        menuItems.add(new DrawerMenuItem(R.drawable.ic_profile, inflater.getContext().getString(R.string.title_profile)));
+        menuItems.add(new DrawerMenuItem(R.drawable.ic_feed, inflater.getContext().getString(R.string.title_feed)));
+        menuItems.add(new DrawerMenuItem(R.drawable.ic_fav, inflater.getContext().getString(R.string.title_fav)));
         menuItems.add(DrawerMenuItem.dividerMenuItem());
-        menuItems.add(new DrawerMenuItem(0, inflater.getContext().getString(R.string.title_setting)));
-        menuItems.add(new DrawerMenuItem(0, inflater.getContext().getString(R.string.title_about)));
+        menuItems.add(new DrawerMenuItem(R.drawable.ic_settings, inflater.getContext().getString(R.string.title_setting)));
+        menuItems.add(new DrawerMenuItem(R.drawable.ic_about, inflater.getContext().getString(R.string.title_about)));
         notifyDataSetChanged();
     }
 
