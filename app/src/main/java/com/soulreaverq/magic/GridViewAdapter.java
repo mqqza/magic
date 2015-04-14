@@ -7,55 +7,51 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class GridViewAdapter extends ArrayAdapter<ClipData.Item> {
-    Context context;
-    int layoutResourceId;
-    ArrayList<ClipData.Item> data = new ArrayList<ClipData.Item>();
+public class GridViewAdapter extends BaseAdapter {
 
-    public GridViewAdapter(Context context, int layoutResourceId, ArrayList<ClipData.Item> data) {
+    int[] imageId;
+    private final LayoutInflater inflater;
 
-        super(context, layoutResourceId, data);
-        this.layoutResourceId = layoutResourceId;
-        this.context = context;
-        this.data = data;
+    public GridViewAdapter(Context context, int[] prgmImages) {
+        imageId = prgmImages;
+        this.inflater = LayoutInflater.from(context);
+    }
+
+    @Override
+    public int getCount() {
+        return imageId.length;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return position;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        /*View row = convertView;
+        Holder holder = new Holder();
+        View rowView;
+        rowView = inflater.inflate(R.layout.item_gridview, null);
+        holder.img = (ImageView) rowView.findViewById(R.id.imageView1);
 
-        RecordHolder holder = null;
-        if (row == null) {
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        holder.img.setImageResource(imageId[position]);
 
-            row = inflater.inflate(layoutResourceId, parent, false);
-
-
-            holder = new RecordHolder();
-            holder.txtTitle = (TextView) row.findViewById(R.id.item_text);
-            holder.imageItem = (ImageView) row.findViewById(R.id.item_image);
-            row.setTag(holder);
-        } else {
-            holder = (RecordHolder) row.getTag();
-        }
-
-        ClipData.Item item = data.get(position);
-        holder.txtTitle.setText(item.getTitle());
-        holder.imageItem.setImageBitmap(item.getImage());
-        return row;*/
-        return convertView;
-
+        return rowView;
     }
 
-    static class RecordHolder {
-        TextView txtTitle;
-        ImageView imageItem;
-
+    public class Holder {
+        ImageView img;
     }
-
 }

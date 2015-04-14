@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
-
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fragment 1"
-        android:id="@+id/textView" />
-
     <GridView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:verticalSpacing="4dp"
+        android:horizontalSpacing="4dp"
+        android:stretchMode="columnWidth"
+        android:numColumns="2"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/multiple_actions"
