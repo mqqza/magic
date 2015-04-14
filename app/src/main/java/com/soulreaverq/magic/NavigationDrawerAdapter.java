@@ -77,10 +77,14 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
 
     }
 
+    public void setPosition(int position){
+        mItemSelected = position;
+    }
+
     private void setupMenuItems() {
         menuItems.add(new DrawerMenuItem(R.drawable.ic_profile, inflater.getContext().getString(R.string.title_profile)));
         menuItems.add(new DrawerMenuItem(R.drawable.ic_feed, inflater.getContext().getString(R.string.title_feed)));
-        menuItems.add(new DrawerMenuItem(R.drawable.ic_fav, inflater.getContext().getString(R.string.title_fav)));
+        menuItems.add(new DrawerMenuItem(R.drawable.ic_star, inflater.getContext().getString(R.string.title_stars)));
         menuItems.add(DrawerMenuItem.dividerMenuItem());
         menuItems.add(new DrawerMenuItem(R.drawable.ic_settings, inflater.getContext().getString(R.string.title_setting)));
         menuItems.add(new DrawerMenuItem(R.drawable.ic_about, inflater.getContext().getString(R.string.title_about)));
