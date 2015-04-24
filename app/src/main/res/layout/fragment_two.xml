@@ -12,9 +12,10 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="4dp"
         android:horizontalSpacing="4dp"
-        android:padding="4dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:clipToPadding="false"
-        android:numColumns="2" />
+        android:numColumns="1" />
 
     <com.getbase.floatingactionbutton.FloatingActionButton
         android:id="@+id/multiple_actions"

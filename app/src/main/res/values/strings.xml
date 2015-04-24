@@ -6,7 +6,8 @@
     <string name="title_stars">Starred</string>
     <string name="title_setting">Setting</string>
     <string name="title_about">About</string>
-
+    <string name="title_column_single">Single-column view</string>
+    <string name="title_column_multi">Multi-column view</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

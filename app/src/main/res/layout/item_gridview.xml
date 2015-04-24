@@ -17,12 +17,12 @@
             android:gravity="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="QQQ"
+            android:text=""
             android:padding="8dp"
             android:textSize="24sp"
             android:textColor="@color/white"
-            android:background="#48000000"
+            android:background="@drawable/textview_background"
             android:layout_gravity="bottom"/>
 
-
+<!-- android:background="#48000000" -->
 </FrameLayout>
