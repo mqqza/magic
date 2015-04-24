@@ -18,13 +18,13 @@ import java.util.ArrayList;
 
 public class GridViewAdapter extends BaseAdapter {
 
-    private final LayoutInflater inflater;
-    ArrayList<String> items;
+    private final LayoutInflater mInflater;
+    ArrayList<String> mItems;
     private LruCache<String, Bitmap> mMemoryCache;
 
     public GridViewAdapter(Context context, ArrayList<String> items) {
-        this.inflater = LayoutInflater.from(context);
-        this.items = items;
+        this.mInflater = LayoutInflater.from(context);
+        this.mItems = items;
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
         final int cacheSize = maxMemory / 8;
         mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
@@ -39,12 +39,12 @@ public class GridViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return items.size();
+        return mItems.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return items.get(position);
+        return mItems.get(position);
     }
 
     @Override
@@ -54,14 +54,12 @@ public class GridViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-
         ImageView img = null;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_gridview, null);
-            img = (ImageView) convertView.findViewById(R.id.imageView1);
+            convertView = mInflater.inflate(R.layout.item_gridview, null);
+            img = (ImageView) convertView.findViewById(R.id.imageView);
         }
-        int resId = convertView.getResources().getIdentifier(items.get(position),
+        int resId = convertView.getResources().getIdentifier(mItems.get(position),
                 "drawable", convertView.getContext().getPackageName());
 
         loadBitmap(resId, img);
@@ -145,7 +143,7 @@ public class GridViewAdapter extends BaseAdapter {
         protected Bitmap doInBackground(Integer... params) {
             data = params[0];
             final Bitmap bitmap = decodeSampledBitmapFromResource(
-                   inflater.getContext().getResources(), data, 100, 100);
+                   mInflater.getContext().getResources(), data, 100, 100);
             addBitmapToMemoryCache(String.valueOf(params[0]), bitmap);
             return bitmap;
         }

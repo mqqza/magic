@@ -6,13 +6,14 @@
    >
 
         <com.soulreaverq.magic.SquareImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/empty_photo"
             android:scaleType="centerCrop" />
 
         <TextView
+            android:id="@+id/likeView"
             android:gravity="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

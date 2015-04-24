@@ -35,38 +35,38 @@ public class MainActivity extends ActionBarActivity
 
 
     public void initToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-       toolbar.setSubtitle("Start");
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        mToolbar.setSubtitle("Start");
 
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // Update the main content by replacing fragments
-        Fragment fragment;
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment mFragment;
+        FragmentManager mFragmentManager = getSupportFragmentManager();
         switch (position) {
             default:
             case 0:
-                fragment = new MyFragment1();
+                mFragment = new MyFragment1();
                 break;
             case 1:
-                fragment = new MyFragment2();
+                mFragment = new MyFragment2();
                 break;
             case 2:
-                fragment = new MyFragment3();
+                mFragment = new MyFragment3();
                 break;
             case 4:
-                fragment = new MyFragment4();
+                mFragment = new MyFragment4();
                 break;
             case 5:
-                fragment = new MyFragment5();
+                mFragment = new MyFragment5();
                 break;
         }
 
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, fragment)
+        mFragmentManager.beginTransaction()
+                .replace(R.id.container, mFragment)
                 .commit();
     }
 
@@ -82,7 +82,7 @@ public class MainActivity extends ActionBarActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
-            // Only show items in the action bar relevant to this screen
+            // Only show mItems in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
             getMenuInflater().inflate(R.menu.main, menu);

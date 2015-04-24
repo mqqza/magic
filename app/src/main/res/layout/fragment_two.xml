@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <GridView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <GridView
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,12 +23,12 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        fab:fab_colorNormal="@color/colorPrimary"
-        fab:fab_colorPressed="@color/colorPrimary_dark"
-        fab:fab_icon="@android:drawable/ic_menu_camera"
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        fab:fab_colorNormal="@color/colorPrimary"
+        fab:fab_colorPressed="@color/colorPrimaryDark"
+        fab:fab_icon="@android:drawable/ic_menu_camera" />
 
 
 </RelativeLayout>

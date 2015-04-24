@@ -6,45 +6,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+
 import java.util.ArrayList;
 
 public class MyFragment2 extends android.support.v4.app.Fragment {
 
-    GridView gridView;
+    GridView mGridView;
+    private static final String TAG = "CCC";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ((ActionBarActivity)getActivity()).getSupportActionBar().setSubtitle("Feed");
+        ((ActionBarActivity) getActivity()).getSupportActionBar().setSubtitle("Feed");
         View view = inflater.inflate(R.layout.fragment_two, container, false);
-        ArrayList<String> items = new ArrayList<>();
-        items.add("q");
-        items.add("w");
-        items.add("e");
-        items.add("r");
-        items.add("t");
-        items.add("y");
-        items.add("u");
-        items.add("qwer");
-        items.add("q");
-        items.add("w");
-        items.add("e");
-        items.add("r");
-        items.add("t");
-        items.add("y");
-        items.add("u");
-        items.add("qwer");
-        items.add("q");
-        items.add("w");
-        items.add("e");
-        items.add("r");
-        items.add("t");
-        items.add("y");
-        items.add("u");
-        gridView = (GridView) view.findViewById(R.id.grid_view);
-        gridView.setVerticalScrollBarEnabled(false);
-        gridView.setAdapter(new GridViewAdapter(getActivity(), items));
+        ArrayList<Picture> items = new ArrayList<>();
+        items.add(new Picture("drawable://" + R.drawable.q, 5));
+        items.add(new Picture("drawable://" + R.drawable.w, 2));
+        items.add(new Picture("drawable://" + R.drawable.e, 3));
+        items.add(new Picture("drawable://" + R.drawable.r, 4));
+        items.add(new Picture("drawable://" + R.drawable.t, 21));
+        items.add(new Picture("drawable://" + R.drawable.y, 0));
+        items.add(new Picture("drawable://" + R.drawable.qwer, 3));
+        items.add(new Picture("drawable://" + R.drawable.u, 0));
+
+        mGridView = (GridView) view.findViewById(R.id.grid_view);
+        // Log.v(TAG, items.toString());
+        mGridView.setAdapter(new GridViewAdapter2(getActivity(), items));
+        //mGridView.setAdapter(new GridViewAdapter(getActivity(), items));
         return view;
     }
 }

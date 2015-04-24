@@ -16,22 +16,22 @@ import java.util.List;
 
 public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapter.DrawerMenuItem> {
 
-    private final List<DrawerMenuItem> menuItems = new ArrayList<>();
+    private final List<DrawerMenuItem> mMenuItems = new ArrayList<>();
     private static final int TYPE_MENU_ITEM = 0;
     private static final int TYPE_DIVIDER = 1;
-    private final LayoutInflater inflater;
+    private final LayoutInflater mInflater;
     private int mItemSelected;
 
     public NavigationDrawerAdapter(Context context) {
         super(context, 0);
-        this.inflater = LayoutInflater.from(context);
+        this.mInflater = LayoutInflater.from(context);
         setupMenuItems();
     }
 
 
     @Override
     public int getCount() {
-        return menuItems.size();
+        return mMenuItems.size();
     }
 
     @Override
@@ -41,12 +41,12 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
 
     @Override
     public DrawerMenuItem getItem(int position) {
-        return menuItems.get(position);
+        return mMenuItems.get(position);
     }
 
     @Override
     public int getItemViewType(int position) {
-        return menuItems.get(position).isDivider ? TYPE_DIVIDER : TYPE_MENU_ITEM;
+        return mMenuItems.get(position).mIsDivider ? TYPE_DIVIDER : TYPE_MENU_ITEM;
     }
 
     @Override
@@ -58,48 +58,48 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
     public View getView(int position, View convertView, ViewGroup parent) {
         if (getItemViewType(position) == TYPE_MENU_ITEM) {
             if (convertView == null)
-                convertView = inflater.inflate(R.layout.item_listview, parent, false);
+                convertView = mInflater.inflate(R.layout.item_listview, parent, false);
             DrawerMenuItem item = getItem(position);
             final ImageView ivIcon = (ImageView) convertView.findViewById(R.id.ivIcon);
             TextView tvLabel = (TextView) convertView.findViewById(R.id.tvLabel);
-            tvLabel.setText(item.label);
-            ivIcon.setImageResource(item.iconResId);
-            ivIcon.setColorFilter(Color.rgb(128,128,128), PorterDuff.Mode.SRC_IN);
-            if (position == mItemSelected ) {
+            tvLabel.setText(item.mLabel);
+            ivIcon.setImageResource(item.mIconResId);
+            ivIcon.setColorFilter(Color.rgb(128, 128, 128), PorterDuff.Mode.SRC_IN);
+            if (position == mItemSelected) {
                 ivIcon.setColorFilter(Color.rgb(250, 135, 122), PorterDuff.Mode.SRC_IN);
             }
-            ivIcon.setVisibility(item.iconResId == 0 ? View.GONE : View.VISIBLE);
+            ivIcon.setVisibility(item.mIconResId == 0 ? View.GONE : View.VISIBLE);
 
             return convertView;
         } else {
-            return inflater.inflate(R.layout.item_menu_divider, parent, false);
+            return mInflater.inflate(R.layout.item_menu_divider, parent, false);
         }
 
     }
 
-    public void setPosition(int position){
+    public void setPosition(int position) {
         mItemSelected = position;
     }
 
     private void setupMenuItems() {
-        menuItems.add(new DrawerMenuItem(R.drawable.ic_profile, inflater.getContext().getString(R.string.title_profile)));
-        menuItems.add(new DrawerMenuItem(R.drawable.ic_feed, inflater.getContext().getString(R.string.title_feed)));
-        menuItems.add(new DrawerMenuItem(R.drawable.ic_star, inflater.getContext().getString(R.string.title_stars)));
-        menuItems.add(DrawerMenuItem.dividerMenuItem());
-        menuItems.add(new DrawerMenuItem(R.drawable.ic_settings, inflater.getContext().getString(R.string.title_setting)));
-        menuItems.add(new DrawerMenuItem(R.drawable.ic_about, inflater.getContext().getString(R.string.title_about)));
+        mMenuItems.add(new DrawerMenuItem(R.drawable.ic_profile, mInflater.getContext().getString(R.string.title_profile)));
+        mMenuItems.add(new DrawerMenuItem(R.drawable.ic_feed, mInflater.getContext().getString(R.string.title_feed)));
+        mMenuItems.add(new DrawerMenuItem(R.drawable.ic_star, mInflater.getContext().getString(R.string.title_stars)));
+        mMenuItems.add(DrawerMenuItem.dividerMenuItem());
+        mMenuItems.add(new DrawerMenuItem(R.drawable.ic_settings, mInflater.getContext().getString(R.string.title_setting)));
+        mMenuItems.add(new DrawerMenuItem(R.drawable.ic_about, mInflater.getContext().getString(R.string.title_about)));
         notifyDataSetChanged();
     }
 
     public static class DrawerMenuItem {
-        public int iconResId;
-        public String label;
-        public boolean isDivider;
+        public int mIconResId;
+        public String mLabel;
+        public boolean mIsDivider;
 
         public DrawerMenuItem(int iconResId, String label) {
-            this.iconResId = iconResId;
-            this.label = label;
-            this.isDivider = false;
+            this.mIconResId = iconResId;
+            this.mLabel = label;
+            this.mIsDivider = false;
         }
 
         public DrawerMenuItem() {
@@ -108,7 +108,7 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
 
         public static DrawerMenuItem dividerMenuItem() {
             DrawerMenuItem globalMenuItem = new DrawerMenuItem();
-            globalMenuItem.isDivider = true;
+            globalMenuItem.mIsDivider = true;
             return globalMenuItem;
         }
     }
