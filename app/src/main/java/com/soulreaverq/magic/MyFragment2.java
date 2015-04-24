@@ -33,7 +33,6 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
         mGridView = (GridView) view.findViewById(R.id.grid_view);
         // Log.v(TAG, items.toString());
         mGridView.setAdapter(new GridViewAdapter2(getActivity(), items));
-        //mGridView.setAdapter(new GridViewAdapter(getActivity(), items));
         return view;
     }
 }
