@@ -46,7 +46,7 @@ public class GridViewAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.item_gridview, parent, false);
             viewHolder = new GridViewHolder();
             viewHolder.mImageView = (SquareImageView) convertView.findViewById(R.id.imageView);
-            viewHolder.mLikes = (TextView) convertView.findViewById(R.id.likeView);
+            viewHolder.mLikesView = (TextView) convertView.findViewById(R.id.likeView);
 
             convertView.setTag(viewHolder);
 
@@ -59,14 +59,14 @@ public class GridViewAdapter extends BaseAdapter {
                         .resetViewBeforeLoading(true)
                         .build();
         imageLoader.displayImage(mItems.get(position).getImage(), viewHolder.mImageView, options);
-        viewHolder.mLikes.setText(Integer.toString(mItems.get(position).getLikes()));
+        viewHolder.mLikesView.setText(Integer.toString(mItems.get(position).getLikes()));
         return convertView;
     }
 
     private static class GridViewHolder {
 
         public SquareImageView mImageView;
-        public TextView mLikes;
+        public TextView mLikesView;
 
     }
 }

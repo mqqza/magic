@@ -1,13 +1,18 @@
 package com.soulreaverq.magic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.internal.widget.AdapterViewCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import java.util.ArrayList;
@@ -41,6 +46,17 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
         mGridView = (GridView) view.findViewById(R.id.grid_view);
         // Log.v(TAG, items.toString());
         mGridView.setAdapter(new GridViewAdapter(getActivity(), items));
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Picture item = (Picture) parent.getItemAtPosition(position);
+                //Create intent
+                Intent intent = new Intent(getActivity(), PictureActivity.class);
+                intent.putExtra("title", Integer.toString(item.getLikes()));
+                intent.putExtra("image", item.getImage());
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -54,19 +70,21 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.column:
-                float scale = getResources().getDisplayMetrics().density;
-                int dpAsPixels = (int) (4*scale + 0.5f);
                 GridView gridView = (GridView) getActivity().findViewById(R.id.grid_view);
                 if (TYPE_OF_COLUMN) {
                     TYPE_OF_COLUMN = false;
+                    int dpAsPixels = (int) (1 * getResources().getDisplayMetrics().density + 0.5f);
                     item.setTitle(R.string.title_column_multi);
                     gridView.setNumColumns(2);
-                    gridView.setPadding(dpAsPixels,dpAsPixels,dpAsPixels,dpAsPixels);
+                    gridView.setPadding(dpAsPixels, dpAsPixels, dpAsPixels, dpAsPixels);
+                    gridView.setVerticalSpacing(dpAsPixels);
                 } else {
                     TYPE_OF_COLUMN = true;
+                    int dpAsPixels = (int) (4 * getResources().getDisplayMetrics().density + 0.5f);
                     item.setTitle(R.string.title_column_single);
                     gridView.setNumColumns(1);
-                    gridView.setPadding(0,dpAsPixels,0,dpAsPixels);
+                    gridView.setPadding(0, dpAsPixels, 0, dpAsPixels);
+                    gridView.setVerticalSpacing(dpAsPixels);
                 }
                 return true;
             default:

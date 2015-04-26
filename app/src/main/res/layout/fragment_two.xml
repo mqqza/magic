@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:stretchMode="columnWidth"
         android:verticalSpacing="4dp"
-        android:horizontalSpacing="4dp"
+        android:horizontalSpacing="1dp"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:clipToPadding="false"
