@@ -21,7 +21,7 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
 
     GridView mGridView;
     private static final String TAG = "CCC";
-    private static boolean TYPE_OF_COLUMN = true;
+    private static boolean TYPE_OF_COLUMN;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,6 +64,9 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.fragment2, menu);
         super.onCreateOptionsMenu(menu, inflater);
+        TYPE_OF_COLUMN = true;
+        MenuItem item = menu.findItem(R.id.column);
+        item.setTitle(R.string.title_column_multi);
     }
 
     @Override
@@ -74,14 +77,14 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
                 if (TYPE_OF_COLUMN) {
                     TYPE_OF_COLUMN = false;
                     int dpAsPixels = (int) (1 * getResources().getDisplayMetrics().density + 0.5f);
-                    item.setTitle(R.string.title_column_multi);
+                    item.setTitle(R.string.title_column_single);
                     gridView.setNumColumns(2);
                     gridView.setPadding(dpAsPixels, dpAsPixels, dpAsPixels, dpAsPixels);
                     gridView.setVerticalSpacing(dpAsPixels);
                 } else {
                     TYPE_OF_COLUMN = true;
                     int dpAsPixels = (int) (4 * getResources().getDisplayMetrics().density + 0.5f);
-                    item.setTitle(R.string.title_column_single);
+                    item.setTitle(R.string.title_column_multi);
                     gridView.setNumColumns(1);
                     gridView.setPadding(0, dpAsPixels, 0, dpAsPixels);
                     gridView.setVerticalSpacing(dpAsPixels);
