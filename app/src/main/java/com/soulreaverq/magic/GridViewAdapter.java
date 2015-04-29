@@ -1,5 +1,7 @@
 package com.soulreaverq.magic;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +18,6 @@ public class GridViewAdapter extends BaseAdapter {
 
     private final LayoutInflater mInflater;
     private ArrayList<Picture> mItems;
-
 
     public GridViewAdapter(Context context, ArrayList<Picture> items) {
         this.mInflater = LayoutInflater.from(context);
@@ -51,14 +52,8 @@ public class GridViewAdapter extends BaseAdapter {
             convertView.setTag(viewHolder);
 
         } else viewHolder = (GridViewHolder) convertView.getTag();
-        ImageLoader imageLoader = ImageLoader.getInstance();
-        DisplayImageOptions options =
-                new DisplayImageOptions.Builder()
-                        .cacheInMemory(true)
-                        .cacheOnDisc(true)
-                        .resetViewBeforeLoading(true)
-                        .build();
-        imageLoader.displayImage(mItems.get(position).getImage(), viewHolder.mImageView, options);
+
+        ImageLoader.getInstance().displayImage(mItems.get(position).getImage(), viewHolder.mImageView);
         viewHolder.mLikesView.setText(Integer.toString(mItems.get(position).getLikes()));
         return convertView;
     }

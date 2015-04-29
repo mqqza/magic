@@ -3,15 +3,12 @@ package com.soulreaverq.magic;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.internal.widget.AdapterViewCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
@@ -32,16 +29,16 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
         setHasOptionsMenu(true);
 
         ArrayList<Picture> items = new ArrayList<>();
-        items.add(new Picture("drawable://" + R.drawable.q, 5));
-        items.add(new Picture("drawable://" + R.drawable.w, 2));
-        items.add(new Picture("drawable://" + R.drawable.e, 3));
-        items.add(new Picture("drawable://" + R.drawable.r, 4));
-        items.add(new Picture("drawable://" + R.drawable.t, 21));
-        items.add(new Picture("drawable://" + R.drawable.y, 0));
-        items.add(new Picture("drawable://" + R.drawable.qwer, 3));
-        items.add(new Picture("drawable://" + R.drawable.u, 0));
+        items.add(new Picture("drawable://" + R.drawable.example1, 5));
+        items.add(new Picture("drawable://" + R.drawable.example2, 2));
+        items.add(new Picture("drawable://" + R.drawable.example3, 3));
+        items.add(new Picture("drawable://" + R.drawable.example4, 4));
+        items.add(new Picture("drawable://" + R.drawable.example5, 21));
+        items.add(new Picture("drawable://" + R.drawable.example6, 0));
+        items.add(new Picture("drawable://" + R.drawable.example7, 54));
+        items.add(new Picture("drawable://" + R.drawable.example8, 3));
+        items.add(new Picture("drawable://" + R.drawable.example9, 0));
 
-        items.add(new Picture("drawable://" + R.drawable.ewq, 54));
 
         mGridView = (GridView) view.findViewById(R.id.grid_view);
         // Log.v(TAG, items.toString());

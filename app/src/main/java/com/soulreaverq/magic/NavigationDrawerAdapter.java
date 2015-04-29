@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,6 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
         this.mInflater = LayoutInflater.from(context);
         setupMenuItems();
     }
-
 
     @Override
     public int getCount() {
@@ -63,12 +64,14 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
             final ImageView ivIcon = (ImageView) convertView.findViewById(R.id.ivIcon);
             TextView tvLabel = (TextView) convertView.findViewById(R.id.tvLabel);
             tvLabel.setText(item.mLabel);
-            ivIcon.setImageResource(item.mIconResId);
+            ImageLoader.getInstance().displayImage("drawable://" + item.mIconResId, ivIcon);
+            //ivIcon.setImageResource(item.mIconResId);
             ivIcon.setColorFilter(Color.rgb(128, 128, 128), PorterDuff.Mode.SRC_IN);
             if (position == mItemSelected) {
                 ivIcon.setColorFilter(Color.rgb(250, 135, 122), PorterDuff.Mode.SRC_IN);
             }
             ivIcon.setVisibility(item.mIconResId == 0 ? View.GONE : View.VISIBLE);
+
 
             return convertView;
         } else {

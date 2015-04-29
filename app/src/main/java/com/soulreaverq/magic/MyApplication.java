@@ -2,6 +2,7 @@ package com.soulreaverq.magic;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -13,17 +14,23 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 public class MyApplication extends Application {
+
     public MyApplication() {
 
     }
 
     public void onCreate() {
         super.onCreate();
+
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
                 .cacheOnDisc(true)
                 .cacheInMemory(true)
                 .imageScaleType(ImageScaleType.EXACTLY)
-                .displayer(new FadeInBitmapDisplayer(300)).build();
+                .displayer(new FadeInBitmapDisplayer(300))
+                .showStubImage(R.drawable.empty_photo)
+                .showImageForEmptyUri(R.drawable.empty_photo)
+                .showImageOnFail(R.drawable.empty_photo)
+                .build();
 
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
                 getApplicationContext())
