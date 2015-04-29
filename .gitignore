@@ -31,5 +31,5 @@ proguard/
 *.iws
 .idea/
 
-#example image
+#temp image
 /*.jpg
