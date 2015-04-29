@@ -6,7 +6,8 @@
 ---
 ### USES LIBRARY:
 * [FloatingActionButton](https://github.com/futuresimple/android-floating-action-button)
-* [Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader)
+* [UniversalImageLoader](https://github.com/nostra13/Android-Universal-Image-Loader)
+
 ---
 
 ### SCREENSHOTS:
