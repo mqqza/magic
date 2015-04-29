@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
+    android:layout_gravity="center"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardCornerRadius="0dp"
+    android:elevation="0dp"
+    >
 
         <com.soulreaverq.magic.SquareImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:scaleType="centerCrop" />
 
         <TextView
@@ -26,4 +32,4 @@
 <!--
 -->
 <!--  android:background="#48000000"-->
-</FrameLayout>
+</android.support.v7.widget.CardView>

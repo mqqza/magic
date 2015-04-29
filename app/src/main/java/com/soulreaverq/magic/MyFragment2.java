@@ -1,24 +1,24 @@
 package com.soulreaverq.magic;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.GridView;
 
 import java.util.ArrayList;
 
 public class MyFragment2 extends android.support.v4.app.Fragment {
 
-    GridView mGridView;
+    RecyclerView mGridView;
     private static final String TAG = "CCC";
-    private static boolean TYPE_OF_COLUMN;
+    private static boolean TYPE_OF_COLUMN_SINGLE;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,21 +39,14 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
         items.add(new Picture("drawable://" + R.drawable.example8, 3));
         items.add(new Picture("drawable://" + R.drawable.example9, 0));
 
+        mGridView = (RecyclerView) view.findViewById(R.id.grid_view);
+        mGridView.setHasFixedSize(true);
 
-        mGridView = (GridView) view.findViewById(R.id.grid_view);
-        // Log.v(TAG, items.toString());
-        mGridView.setAdapter(new GridViewAdapter(getActivity(), items));
-        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Picture item = (Picture) parent.getItemAtPosition(position);
-                //Create intent
-                Intent intent = new Intent(getActivity(), PictureActivity.class);
-                intent.putExtra("title", Integer.toString(item.getLikes()));
-                intent.putExtra("image", item.getImage());
-                startActivity(intent);
-            }
-        });
+        mGridView.setAdapter(new RecyclerAdapter(R.layout.item_gridview, getActivity(), items));
+        mGridView.setItemAnimator(new DefaultItemAnimator());
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
+        mGridView.setLayoutManager(gridLayoutManager);
+
         return view;
     }
 
@@ -61,7 +54,7 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.fragment2, menu);
         super.onCreateOptionsMenu(menu, inflater);
-        TYPE_OF_COLUMN = true;
+        TYPE_OF_COLUMN_SINGLE = true;
         MenuItem item = menu.findItem(R.id.column);
         item.setTitle(R.string.title_column_multi);
     }
@@ -70,21 +63,19 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.column:
-                GridView gridView = (GridView) getActivity().findViewById(R.id.grid_view);
-                if (TYPE_OF_COLUMN) {
-                    TYPE_OF_COLUMN = false;
-                    int dpAsPixels = (int) (1 * getResources().getDisplayMetrics().density + 0.5f);
+                if (TYPE_OF_COLUMN_SINGLE) {
+                    TYPE_OF_COLUMN_SINGLE = false;
                     item.setTitle(R.string.title_column_single);
-                    gridView.setNumColumns(2);
-                    gridView.setPadding(dpAsPixels, dpAsPixels, dpAsPixels, dpAsPixels);
-                    gridView.setVerticalSpacing(dpAsPixels);
+                    GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+                    mGridView.setLayoutManager(gridLayoutManager);
+
+
+                    //gridView.setVerticalSpacing(dpAsPixels);
                 } else {
-                    TYPE_OF_COLUMN = true;
-                    int dpAsPixels = (int) (4 * getResources().getDisplayMetrics().density + 0.5f);
+                    TYPE_OF_COLUMN_SINGLE = true;
                     item.setTitle(R.string.title_column_multi);
-                    gridView.setNumColumns(1);
-                    gridView.setPadding(0, dpAsPixels, 0, dpAsPixels);
-                    gridView.setVerticalSpacing(dpAsPixels);
+                    GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
+                    mGridView.setLayoutManager(gridLayoutManager);
                 }
                 return true;
             default:
@@ -94,3 +85,4 @@ public class MyFragment2 extends android.support.v4.app.Fragment {
         return false;
     }
 }
+

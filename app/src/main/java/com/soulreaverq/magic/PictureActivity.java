@@ -37,18 +37,10 @@ public class PictureActivity extends ActionBarActivity {
         mTitle = getIntent().getStringExtra("title");
         mImage = getIntent().getStringExtra("image");
 
-        ImageLoader imageLoader = ImageLoader.getInstance();
-        DisplayImageOptions options =
-                new DisplayImageOptions.Builder()
-                        .cacheInMemory(true)
-                        .cacheOnDisc(true)
-                        .resetViewBeforeLoading(true)
-                        .build();
-
         TextView textView = (TextView) findViewById(R.id.title);
         SquareImageView imageView = (SquareImageView) findViewById(R.id.image);
 
         textView.setText("LIKES: " + mTitle);
-        imageLoader.displayImage(mImage, imageView, options);
+        ImageLoader.getInstance().displayImage(mImage, imageView);
     }
 }

@@ -5,17 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <GridView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="4dp"
-        android:horizontalSpacing="1dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:clipToPadding="false"
-        android:numColumns="1" />
+        android:clipToPadding="false" />
 
     <com.getbase.floatingactionbutton.FloatingActionButton
         android:id="@+id/multiple_actions"
