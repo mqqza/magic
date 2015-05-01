@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    card_view:cardUseCompatPadding="true"
-    card_view:cardCornerRadius="0dp"
-    android:elevation="0dp"
-    >
+    android:paddingBottom="2dp"
+    android:paddingTop="2dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:elevation="0dp"
+        android:orientation="vertical"
+        card_view:cardCornerRadius="0dp">
 
         <com.soulreaverq.magic.SquareImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/likeView"
-
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:padding="16dp"
-            android:textSize="16sp"
-            android:textColor="@color/white"
+            android:layout_gravity="bottom"
             android:background="@drawable/background_textview"
             android:gravity="bottom|end"
-            android:layout_gravity="bottom"/>
-<!--
--->
-<!--  android:background="#48000000"-->
-</android.support.v7.widget.CardView>
+            android:padding="16dp"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+        <!--
+        -->
+        <!--  android:background="#48000000"-->
+    </android.support.v7.widget.CardView>
+</LinearLayout>

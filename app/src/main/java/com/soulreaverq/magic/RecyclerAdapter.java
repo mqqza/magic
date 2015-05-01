@@ -30,6 +30,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return new ViewHolder(v);
     }
 
+
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         final Picture item = items.get(position);

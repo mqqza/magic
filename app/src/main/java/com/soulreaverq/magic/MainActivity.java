@@ -1,15 +1,19 @@
 package com.soulreaverq.magic;
 
+import android.support.v4.widget.ViewDragHelper;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
-public class MainActivity extends ActionBarActivity
+import java.lang.reflect.Field;
+
+public class MainActivity extends AppCompatActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -31,19 +35,48 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        Field mDragger;
+        try {
+            mDragger = mDrawerLayout.getClass().getDeclaredField(
+                    "mLeftDragger");
+            mDragger.setAccessible(true);
+            ViewDragHelper draggerObj = (ViewDragHelper) mDragger
+                    .get(mDrawerLayout);
+            Field mEdgeSize = draggerObj.getClass().getDeclaredField(
+                    "mEdgeSize");
+            mEdgeSize.setAccessible(true);
+            int edge = mEdgeSize.getInt(draggerObj);
+            mEdgeSize.setInt(draggerObj, edge * 10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+       /* Field mDragger = mDrawerLayout.getClass().getDeclaredField("mLeftDragger");
+        mDragger.setAccessible(true);
+        ViewDragHelper draggerObj = (ViewDragHelper) mDragger.get(mDrawerLayout);
+        Field mEdgeSize = draggerObj.getClass().getDeclaredField("mEdgeSize");
+        mEdgeSize.setAccessible(true);
+        int edge = mEdgeSize.getInt(draggerObj);
+        mEdgeSize.setInt(draggerObj, edge * 5);*/
+
     }
 
 
     public void initToolbar() {
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        mToolbar.setSubtitle("Start");
 
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // Update the main content by replacing fragments
+
         Fragment mFragment;
         FragmentManager mFragmentManager = getSupportFragmentManager();
         switch (position) {

@@ -13,10 +13,23 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
+import java.util.LinkedList;
+
 public class MyApplication extends Application {
 
-    public MyApplication() {
 
+    LinkedList<Picture> items;
+
+    public MyApplication() {
+        items = new LinkedList<>();
+    }
+
+    public LinkedList<Picture> getPictureList() {
+        return items;
+    }
+
+    public void addItem(Picture picture) {
+        items.addFirst(picture);
     }
 
     public void onCreate() {
