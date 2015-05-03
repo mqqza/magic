@@ -8,22 +8,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:paddingTop="12dp"
+        android:layout_height="148dp"
         android:adjustViewBounds="true"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/navdraw_heart_background"
+
+        android:clickable="true">
 
         <ImageView
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:background="@drawable/ic_heart_outline_white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1225"
-            android:textSize="48sp"
+            android:textSize="24sp"
             android:textColor="@color/white"
             />
     </LinearLayout>
