@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="@android:integer/config_shortAnimTime">
-    <!-- <item android:state_pressed="true" android:color="@color/half_black" />  --><!-- pressed -->
-    <!-- <item android:state_focused="true" android:color="@color/half_black" /> --> <!-- focused -->
-    <item android:color="@color/colorPrimary" android:state_activated="true" />
-    <!-- activated -->
-    <item android:color="@color/half_black" />
-    <!-- default -->
+    <item android:drawable="@color/background" android:state_pressed="true" />
+    <item android:drawable="@color/white" android:state_selected="true" />
+    <item android:drawable="@color/background" android:state_activated="true" />
+     <item android:drawable="@color/white" />
+
 </selector>

@@ -4,7 +4,7 @@
     android:orientation="horizontal"
     android:gravity="center_vertical"
     android:padding="16dp"
-    android:background="@drawable/navdraw_listview_text_color">
+    android:background="@drawable/navdraw_listview_background">
 
     <ImageView
         android:id="@+id/ivIcon"
@@ -22,6 +22,6 @@
         android:text="text"
         android:textStyle="bold"
         android:textSize="16sp"
-        android:textColor="@drawable/navdraw_listview_background" />
+        android:textColor="@drawable/navdraw_listview_text_color" />
 </LinearLayout>
 
