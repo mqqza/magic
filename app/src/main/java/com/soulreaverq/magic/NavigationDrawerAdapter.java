@@ -64,8 +64,8 @@ public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerAdapte
             final ImageView ivIcon = (ImageView) convertView.findViewById(R.id.ivIcon);
             TextView tvLabel = (TextView) convertView.findViewById(R.id.tvLabel);
             tvLabel.setText(item.mLabel);
-            ImageLoader.getInstance().displayImage("drawable://" + item.mIconResId, ivIcon);
-            //ivIcon.setImageResource(item.mIconResId);
+            //ImageLoader.getInstance().displayImage("drawable://" + item.mIconResId, ivIcon);
+            ivIcon.setImageResource(item.mIconResId);
             ivIcon.setColorFilter(Color.rgb(128, 128, 128), PorterDuff.Mode.SRC_IN);
             if (position == mItemSelected) {
                 ivIcon.setColorFilter(Color.rgb(250, 135, 122), PorterDuff.Mode.SRC_IN);

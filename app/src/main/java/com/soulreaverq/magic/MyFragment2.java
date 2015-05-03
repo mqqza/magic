@@ -94,13 +94,14 @@ public class MyFragment2 extends android.support.v4.app.Fragment implements Swip
 
         @Override
         protected String doInBackground(Void... params) {
-            myApp.addItem(new Picture("drawable://" + R.drawable.example1, 10));
-            mGridView.getAdapter().notifyDataSetChanged();
+            myApp.addItem(new Picture("drawable://" + R.drawable.example6, 10));
+
             return null;
         }
 
         @Override
         protected void onPostExecute(String string) {
+            mGridView.getAdapter().notifyDataSetChanged();
             mSwipeRefreshLayout.setRefreshing(false);
         }
     }

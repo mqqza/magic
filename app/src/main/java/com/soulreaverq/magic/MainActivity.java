@@ -39,9 +39,8 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        Field mDragger;
         try {
-            mDragger = mDrawerLayout.getClass().getDeclaredField(
+            Field mDragger = mDrawerLayout.getClass().getDeclaredField(
                     "mLeftDragger");
             mDragger.setAccessible(true);
             ViewDragHelper draggerObj = (ViewDragHelper) mDragger
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity
                     "mEdgeSize");
             mEdgeSize.setAccessible(true);
             int edge = mEdgeSize.getInt(draggerObj);
-            mEdgeSize.setInt(draggerObj, edge * 10);
+            mEdgeSize.setInt(draggerObj, edge * 2);
         } catch (Exception e) {
             e.printStackTrace();
         }
