@@ -8,7 +8,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black">
+        android:background="@color/background_material_light">
 
         <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
             android:id="@+id/scroll"
@@ -34,6 +34,54 @@
                     android:layout_height="match_parent"
                     android:gravity="bottom|right"
                     android:padding="16dp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:padding="16dp"
+                    android:text="QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+                    QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
                     android:textSize="16sp" />
             </LinearLayout>
         </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>

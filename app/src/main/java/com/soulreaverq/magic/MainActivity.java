@@ -1,7 +1,6 @@
 package com.soulreaverq.magic;
 
 import android.support.v4.widget.ViewDragHelper;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
@@ -27,7 +26,15 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         initToolbar();
+        initDrawerLayout();
+    }
 
+    public void initToolbar() {
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+    }
+
+    public void initDrawerLayout() {
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
@@ -53,23 +60,6 @@ public class MainActivity extends AppCompatActivity
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-       /* Field mDragger = mDrawerLayout.getClass().getDeclaredField("mLeftDragger");
-        mDragger.setAccessible(true);
-        ViewDragHelper draggerObj = (ViewDragHelper) mDragger.get(mDrawerLayout);
-        Field mEdgeSize = draggerObj.getClass().getDeclaredField("mEdgeSize");
-        mEdgeSize.setAccessible(true);
-        int edge = mEdgeSize.getInt(draggerObj);
-        mEdgeSize.setInt(draggerObj, edge * 5);*/
-
-    }
-
-
-    public void initToolbar() {
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-
     }
 
     @Override
@@ -84,7 +74,7 @@ public class MainActivity extends AppCompatActivity
                 mFragment = new MyFragment1();
                 break;
             case 1:
-                mFragment = new MyFragment2();
+                mFragment = new FeedFragment();
                 break;
             case 2:
                 mFragment = new MyFragment3();

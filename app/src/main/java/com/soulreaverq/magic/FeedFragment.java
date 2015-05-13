@@ -2,9 +2,7 @@ package com.soulreaverq.magic;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,13 +14,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+public class FeedFragment extends android.support.v4.app.Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-public class MyFragment2 extends android.support.v4.app.Fragment implements SwipeRefreshLayout.OnRefreshListener {
-
-    RecyclerView mGridView;
-    private static final String TAG = "CCC";
+    private RecyclerView mRecyclerView;
+    //private static final String TAG = "CCC";
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private MyApplication myApp;
 
@@ -44,13 +39,13 @@ public class MyFragment2 extends android.support.v4.app.Fragment implements Swip
 
         myApp = (MyApplication) getActivity().getApplicationContext();
 
-        mGridView = (RecyclerView) view.findViewById(R.id.grid_view);
-        mGridView.setHasFixedSize(true);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.grid_view);
+        mRecyclerView.setHasFixedSize(true);
 
-        mGridView.setAdapter(new RecyclerAdapter(R.layout.item_gridview, getActivity(), myApp.getPictureList()));
-        mGridView.setItemAnimator(new DefaultItemAnimator());
-        mGridView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
-        mGridView.getAdapter().notifyDataSetChanged();
+        mRecyclerView.setAdapter(new RecyclerAdapter(R.layout.item_gridview, getActivity(), myApp.getPictureList()));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
+        mRecyclerView.getAdapter().notifyDataSetChanged();
         return view;
     }
 
@@ -70,11 +65,11 @@ public class MyFragment2 extends android.support.v4.app.Fragment implements Swip
                 if (TYPE_OF_COLUMN_SINGLE) {
                     TYPE_OF_COLUMN_SINGLE = false;
                     item.setTitle(R.string.title_column_single);
-                    mGridView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                    mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                 } else {
                     TYPE_OF_COLUMN_SINGLE = true;
                     item.setTitle(R.string.title_column_multi);
-                    mGridView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
+                    mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
                 }
                 return true;
             default:
@@ -101,7 +96,7 @@ public class MyFragment2 extends android.support.v4.app.Fragment implements Swip
 
         @Override
         protected void onPostExecute(String string) {
-            mGridView.getAdapter().notifyDataSetChanged();
+            mRecyclerView.getAdapter().notifyDataSetChanged();
             mSwipeRefreshLayout.setRefreshing(false);
         }
     }
